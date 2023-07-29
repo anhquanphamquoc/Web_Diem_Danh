@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    
     <!-- Navbar Section Starts Here -->
     <section class="navbar">
         <div class="container">
@@ -30,7 +31,7 @@
                         <a href="menu-log.php">Home</a>
                     </li>
                     <li>
-                        <a href="menu.php">Log Out</a>
+                        <a href="index.php">Log Out</a>
                     </li>
                     <li>
                         <a>
@@ -42,7 +43,6 @@
                                 echo '<img src="./images/cat-icon.png" width="40px"> ' . $username;
                             }
                             ?>
-                            <button type="button" onclick="window.location.href = 'index.php'" style="color:red; font-weight:bold;">LogOut</button>
                         </a>
                     </li>
                 </ul>

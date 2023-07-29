@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($role === 'admin') {
             header('Location: menu.php');
         } elseif ($role === 'student') {
-            header('Location: student_dashboard.php');
+            header('Location: menu-log.php');
         }
         exit();
     } else {

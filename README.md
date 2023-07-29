@@ -4,3 +4,6 @@ https://github.com/vijaythapa333/web-design-course-restaurant?fbclid=IwAR34-cKAI
 
 https://bootsnipp.com/snippets/vl4R7
     - Đăng nhập (login.php)
+
+https://codepen.io/omariohasan/pen/zNZXKo
+    - Sign Up (register.php)
