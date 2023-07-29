@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($isValidAccount) {
         // Thực hiện đăng nhập thành công, chuyển hướng đến trang dashboard tương ứng
         if ($role === 'admin') {
-            header('Location: menu.php');
+            header('Location: admin.php');
         } elseif ($role === 'student') {
             header('Location: menu-log.php');
         }

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['username'] = $username;
         // Chuyển hướng đến trang dashboard tương ứng
         if ($role === 'admin') {
-            header('Location: index.php');
+            header('Location: admin.php');
         } elseif ($role === 'student') {
             header('Location: menu-log.php');
         }

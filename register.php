@@ -11,6 +11,7 @@
   <!-- Giao diện đăng ký tài khoản -->
   <div class="main-container">
     <div class="main-forms">
+      <a style="color:red; font-size:20px" href="admin.php">Trở về trang Admin</a>
       <div class="signup-form">
         <form class="sign-back" action="" method="">
           <h1>Sign Up</h1>

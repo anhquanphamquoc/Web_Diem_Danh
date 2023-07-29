@@ -31,7 +31,8 @@ function displayFoodMenu($conn)
             echo '<p class="food-price">$' . $food_price . '</p>';
             echo '<p class="food-detail">' . $food_infor . '</p>';
             echo '<br>';
-            echo '<a href="order.html" class="btn btn-primary">Order Now</a>';
+            // id="order-link" là để hiện thông báo bạn chưa đăng nhập trong script của menu.php
+            echo '<a class="btn btn-primary" id="order-link">Order Now</a>';
             echo '</div>';
 
             echo '</div>';
@@ -45,5 +46,3 @@ function displayFoodMenu($conn)
 }
 ?>
 
-<!-- Include file order.js -->
-<script src="../js/order.js"></script>

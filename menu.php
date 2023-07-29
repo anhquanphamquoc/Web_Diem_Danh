@@ -241,3 +241,11 @@
 
 </body>
 </html>
+<script>
+  // Gán sự kiện onclick cho liên kết "Order Now"
+  var orderLink = document.getElementById("order-link");
+  orderLink.onclick = function() {
+    alert("Bạn chưa đăng nhập.");
+  };
+</script>
+
