@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     } else {
         // Hiển thị thông báo lỗi đăng nhập không thành công
-        echo "Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin đăng nhập.";
+        return false;
     }
 }
 ?>

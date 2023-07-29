@@ -17,7 +17,7 @@ function kiemTraTaiKhoan($conn, $username, $password, $role)
     }
 
     // Thực hiện truy vấn SQL để kiểm tra thông tin đăng nhập
-    $sql = "SELECT * FROM $table_name WHERE username = '$username' AND password = '$hashed_password'";
+    $sql = "SELECT * FROM $table_name WHERE username = '$username' AND pass = '$password'";
 
     // Thực thi truy vấn
     $result = mysqli_query($conn, $sql);

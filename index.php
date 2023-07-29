@@ -12,11 +12,12 @@
   ?>
   <!-- Giao diện trang chủ -->
   <?php include "menu.php"; ?>
+  <?/*php include "menu-log.php"; ?>
   <!-- Giao diện đăng nhập -->
   <?/*php include "login.php"; */?> 
   <!-- Giao diện hiển thị giỏ hàng -->
-  <?php include "cart.php"; ?>
+  <?php /*include "cart.php"; ?>
   <!-- Giao diện đặt hàng -->
-  <?php include "orders.php"; ?>
+  <?php include "orders.php"; */?>
 </body>
 </html>

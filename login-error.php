@@ -24,19 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Gọi function kiểm tra tài khoản
     $isValidAccount = kiemTraTaiKhoan($conn, $username, $password, $role);
 
-    
-
     if ($isValidAccount) {
-        
-        // Thực hiện đăng nhập thành công, 
-        // Lưu 'username' vào Sesstion
-        session_start();
-        $_SESSION['username'] = $username;
-        // Chuyển hướng đến trang dashboard tương ứng
+        // Thực hiện đăng nhập thành công, chuyển hướng đến trang dashboard tương ứng
         if ($role === 'admin') {
-            header('Location: index.php');
+            header('Location: menu.php');
         } elseif ($role === 'student') {
-            header('Location: menu-log.php');
+            header('Location: student_dashboard.php');
         }
         exit();
     } else {
@@ -67,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="card">
             <div class="card-header">
                 <h3>Sign In</h3>
+                <h6 style="color:red">Đăng nhập không thành công</h6>
             </div>
             <div class="card-body">
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -92,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </form>
             </div>
             <div class="card-footer">
-            <div class="d-flex justify-content-center links">
+                <div class="d-flex justify-content-center links">
                     Chưa có tài khoản? Vui lòng liên hệ căn tin
                 </div>
             </div>

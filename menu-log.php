@@ -27,10 +27,23 @@
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="index.php">Home</a>
+                        <a href="menu-log.php">Home</a>
                     </li>
                     <li>
-                        <a href="login.php">Login</a>
+                        <a href="menu.php">Log Out</a>
+                    </li>
+                    <li>
+                        <a>
+                            <?php
+                            session_start();
+                            if (isset($_SESSION['username'])) {
+                                $username = $_SESSION['username'];
+                                // Hiển thị 'username'
+                                echo '<img src="./images/cat-icon.png" width="40px"> ' . $username;
+                            }
+                            ?>
+                            <button type="button" onclick="window.location.href = 'index.php'" style="color:red; font-weight:bold;">LogOut</button>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -94,6 +107,7 @@
 
             <?php
             //include tệp menu-function.php
+            require_once "includes/dbconfig.php";
             require_once 'functions/menu-function.php';
 
             //gọi function hiển thị danh sách món ăn
