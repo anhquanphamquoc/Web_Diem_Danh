@@ -20,13 +20,13 @@ function getOrderDetails($conn)
 
             echo '<div class="food-menu-box" style="background-color: ' . $background_color . ';">';
             echo '<div class="food-menu-img">';
-            echo '<img src="images/food_image.jpg" alt="' . $username . '" class="img-responsive img-curve">';
+            echo '<img src="images/People.gif" alt="' . $username . '" class="img-responsive img-curve">';
             echo '</div>';
 
             echo '<div class="food-menu-desc">';
-            echo '<h4>' . $username . '</h4>';
-            echo '<p class="food-price">$' . $food_price . '</p>';
-            echo '<p class="food-detail">' . $food_name . '</p>';
+            echo '<h4 style="color: yellow">' . $username . '</h4>';
+            echo '<p class="food-price" style="color: yellow">$' . $food_price . '</p>';
+            echo '<p class="food-detail" style="color:yellow">' . $food_name . '</p>';
             echo '<br>';
             // Thêm nút bấm để cập nhật trạng thái trangthai khi bấm vào
             echo '<a class="btn btn-primary" onclick="updateOrderStatus(' . $order_id . ')">Xác nhận</a>';

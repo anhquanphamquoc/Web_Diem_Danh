@@ -21,7 +21,7 @@
         <div class="container">
             <div class="logo">
                 <a href="#" title="Logo">
-                    <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
+                    <img src="images/logo.gif" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
 
@@ -59,7 +59,7 @@
     <!-- Work List Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Dánh sách đặt món</h2>
+            <h2 class="text-center">Danh sách đặt món</h2>
 
             <?php
             //include tệp menu-function.php
@@ -187,13 +187,10 @@
         <div class="container text-center">
             <ul>
                 <li>
-                    <a href="#"><img src="https://img.icons8.com/fluent/50/000000/facebook-new.png"/></a>
+                    <a href="https://www.facebook.com/kesan.bongdem.79/"><img src="https://img.icons8.com/fluent/50/000000/facebook-new.png"/></a>
                 </li>
                 <li>
-                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
-                </li>
-                <li>
-                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://img.icons8.com/color/48/youtube-play.png"/></a>
                 </li>
             </ul>
         </div>
