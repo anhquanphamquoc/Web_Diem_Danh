@@ -11,8 +11,8 @@ function getOrderDetails($conn)
         while ($order_details = mysqli_fetch_assoc($result)) {
             $order_id = $order_details['order_one_only_id'];
             $username = $order_details['username'];
-            $total_price = $order_details['total_price'];
-            $foods = $order_details['foods'];
+            $food_price = $order_details['food_price'];
+            $food_name = $order_details['food_name'];
             $trangthai = $order_details['trangthai'];
 
             // Kiểm tra giá trị trangthai để xác định background color
@@ -25,13 +25,12 @@ function getOrderDetails($conn)
 
             echo '<div class="food-menu-desc">';
             echo '<h4>' . $username . '</h4>';
-            echo '<p class="food-price">$' . $total_price . '</p>';
-            echo '</p>';
-            echo '</div>';
-
+            echo '<p class="food-price">$' . $food_price . '</p>';
+            echo '<p class="food-detail">' . $food_name . '</p>';
+            echo '<br>';
             // Thêm nút bấm để cập nhật trạng thái trangthai khi bấm vào
-            echo '<button onclick="updateOrderStatus(' . $order_id . ')">Xác nhận</button>';
-
+            echo '<a class="btn btn-primary" onclick="updateOrderStatus(' . $order_id . ')">Xác nhận</a>';
+            echo '</div>';
             echo '</div>';
         }
     } else {

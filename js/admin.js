@@ -11,7 +11,10 @@ function updateOrderStatus(orderId) {
             if (xhr.status === 200) {
                 var response = xhr.responseText;
                 if (response === "success") {
-                    alert("Cập nhật trạng thái thành công!");
+                    // Xác nhận thành công, refresh trang sau 1 giây
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1000);
                     // Tùy chỉnh lại giao diện hoặc load lại trang nếu cần thiết
                 } else {
                     alert("Có lỗi xảy ra, vui lòng thử lại sau.");
