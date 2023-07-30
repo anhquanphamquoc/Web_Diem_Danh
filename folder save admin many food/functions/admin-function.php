@@ -3,15 +3,18 @@ require_once "includes/dbconfig.php";
 
 function getOrderDetails($conn)
 {
-    $sql = "SELECT order_one_only_id, username, foods, total_price, trangthai
-            FROM order_one_only
-            ORDER BY order_one_only_id DESC"; // Sắp xếp các order theo thứ tự giảm dần của order_one_only_id
+    $sql = "SELECT orders.order_id, student_accounts.username, GROUP_CONCAT(order_items.foods) AS foods, SUM(orders.total_price) AS total_price, orders.trangthai
+            FROM orders
+            INNER JOIN student_accounts ON orders.student_id = student_accounts.student_id
+            INNER JOIN order_items ON orders.order_id = order_items.order_id
+            GROUP BY orders.order_id
+            ORDER BY orders.order_id DESC"; // Sắp xếp các order theo thứ tự giảm dần của order_id
     $result = mysqli_query($conn, $sql);
 
     // Kiểm tra và xử lý kết quả trả về
     if ($result && mysqli_num_rows($result) > 0) {
         while ($order_details = mysqli_fetch_assoc($result)) {
-            $order_id = $order_details['order_one_only_id'];
+            $order_id = $order_details['order_id'];
             $username = $order_details['username'];
             $total_price = $order_details['total_price'];
             $foods = $order_details['foods'];
@@ -28,11 +31,19 @@ function getOrderDetails($conn)
             echo '<div class="food-menu-desc">';
             echo '<h4>' . $username . '</h4>';
             echo '<p class="food-price">$' . $total_price . '</p>';
+            // Tách danh sách các món ăn thành mảng
+            $foods_array = explode(",", $foods);
+
+            // In ra danh sách các món ăn
+            echo '<p class="food-detail">Danh sách món ăn:<br>';
+            foreach ($foods_array as $food) {
+                echo '- ' . trim($food) . '<br>';
+            }
             echo '</p>';
             echo '</div>';
 
             // Thêm nút bấm để cập nhật trạng thái trangthai khi bấm vào
-            echo '<button onclick="updateOrderStatus(' . $order_id . ')">Xác nhận</button>';
+            echo '<button onclick="updateOrderStatus(' . $order_id . ')">Cập nhật trạng thái</button>';
 
             echo '</div>';
         }
@@ -42,4 +53,3 @@ function getOrderDetails($conn)
 
     mysqli_close($conn);
 }
-?>
