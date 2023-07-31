@@ -1,12 +1,15 @@
 Một số template được sử dụng và tham khảo: 
 <br>
 https://github.com/vijaythapa333/web-design-course-restaurant?fbclid=IwAR34-cKAIgt9NE9nFkhz4A-8fXDvEJrGUxtxQ22emefquRHZ2g8Ry-rtMG4: 
+<br>
     - Trang chủ (menu.php)
 <br>
 https://bootsnipp.com/snippets/vl4R7
+<br>
     - Đăng nhập (login.php)
 
 https://codepen.io/omariohasan/pen/zNZXKo
+<br>
     - Sign Up (register.php)
 <br>
 <h1>Các bước để tải về và sử dụng</h1>
