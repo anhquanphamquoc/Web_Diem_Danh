@@ -34,8 +34,10 @@ B7: vào localhost -> chọn file web-dat-mon-an-trong-truong-hoc
 
 <h4>Một số tài khoản có sẵn để đăng nhập</h4>
 Admin
+<br>
 + username: admin
 + password: admin
-
+<br>
 Student
+<br>
 
