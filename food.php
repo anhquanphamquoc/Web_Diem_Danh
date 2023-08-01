@@ -62,15 +62,16 @@
     <!-- Work List Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Danh sách đặt món</h2>
+            <h2 class="text-center">Menu</h2>
+            <h2 class="text-center"><a class="btn btn-primary" href="add-food.php">Thêm món ăn</a></h2>
 
             <?php
             //include tệp menu-function.php
-            require_once 'functions/admin-function.php';
+            require_once 'functions/update-menu-function.php';
 
             //gọi function hiển thị danh sách món ăn
 
-            getOrderDetails($conn);
+            displayFoodMenu($conn);
             ?>
 
 
