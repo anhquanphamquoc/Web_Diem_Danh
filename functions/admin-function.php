@@ -25,7 +25,7 @@ function getOrderDetails($conn)
 
             echo '<div class="food-menu-desc">';
             echo '<h4 style="color: yellow">' . $username . '</h4>';
-            echo '<p class="food-price" style="color: yellow">$' . $food_price . '</p>';
+            echo '<p class="food-price" style="color: yellow">' . $food_price . ' đồng</p>';
             echo '<p class="food-detail" style="color:yellow">' . $food_name . '</p>';
             echo '<br>';
             // Thêm nút bấm để cập nhật trạng thái trangthai khi bấm vào

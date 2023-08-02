@@ -34,7 +34,7 @@
                         <a href="register.php">Sign Up/Delete</a>
                     </li>
                     <li>
-                        <a href="food.php">Update Menu</a>
+                        <a href="admin.php">Danh sách đặt món</a>
                     </li>
                     <li>
                         <a href="index.php">Log Out</a>

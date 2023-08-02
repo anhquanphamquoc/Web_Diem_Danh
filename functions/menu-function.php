@@ -28,7 +28,7 @@ function displayFoodMenu($conn)
 
             echo '<div class="food-menu-desc">';
             echo '<h4>' . $food_name . '</h4>';
-            echo '<p class="food-price">$' . $food_price . '</p>';
+            echo '<p class="food-price">' . $food_price . ' đồng</p>';
             echo '<p class="food-detail">' . $food_infor . '</p>';
             echo '<br>';
             // id="order-link" là để hiện thông báo bạn chưa đăng nhập trong script của menu.php

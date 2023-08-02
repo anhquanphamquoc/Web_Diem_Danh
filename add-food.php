@@ -1,5 +1,3 @@
-<!-- add-food.php -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +13,7 @@
     <div class="main-forms">
       <a style="color:red; font-size:20px" href="admin.php">Trở về trang Admin</a>
       <div class="signup-form">
-        <form class="sign-back" id="addFoodForm" enctype="multipart/form-data">
+        <form class="sign-back" action="./functions/add-food-function.php" method="POST" enctype="multipart/form-data">
           <h1>Thêm món ăn</h1>
           <div class="signup-row">
             <i class="fa"></i>
@@ -34,7 +32,7 @@
           </div>
           <div class="signup-row">
             <br>
-            <button type="button" style="font-size: 30px;" onclick="addFood()">Thêm món ăn</button>
+            <button type="submit" name="submit_food" style="font-size: large">Thêm món ăn</button>
           </div>
         </form>
       </div>

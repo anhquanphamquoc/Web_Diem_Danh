@@ -21,7 +21,7 @@ function displayFoodMenu($conn)
 
             echo '<div class="food-menu-desc">';
             echo '<h4>' . $food_name . '</h4>';
-            echo '<p class="food-price">$' . $food_price . '</p>';
+            echo '<p class="food-price">' . $food_price . ' đồng</p>';
             echo '<p class="food-detail">' . $food_infor . '</p>';
             echo '<br>';
             // Thêm nút "Order Now" và thuộc tính data-foodname chứa tên món ăn

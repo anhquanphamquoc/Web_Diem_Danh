@@ -1,41 +1,29 @@
 <?php
-// add-food-action.php
+// Include file dbconfig.php để có thể sử dụng các biến kết nối cơ sở dữ liệu
 require_once "dbconfig.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["food_name"]) && isset($_POST["food_price"]) && isset($_POST["food_info"])) {
-  // Lấy thông tin món ăn từ form
-  $food_name = $_POST["food_name"];
-  $food_price = $_POST["food_price"];
-  $food_info = $_POST["food_info"];
+if (isset($_POST['submit_food'])) {
+    $food_name = $_POST['food_name'];
+    $food_price = $_POST['food_price'];
+    $food_info = $_POST['food_info'];
 
-  // Kiểm tra xem đã chọn hình ảnh hay chưa
-  if (isset($_FILES["food_image"])) {
-    $file_name = $_FILES["food_image"]["name"];
-    $file_tmp = $_FILES["food_image"]["tmp_name"];
-    $file_destination = "./images/" . $file_name;
+    // Xử lý và lưu hình ảnh vào thư mục "images"
+    $target_dir = "images/";
+    $target_file = $target_dir . basename($_FILES["food_image"]["name"]);
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $newFileName = $target_dir . "food_" . time() . "." . $imageFileType;
 
-    // Di chuyển hình ảnh vào thư mục "images"
-    move_uploaded_file($file_tmp, $file_destination);
-
-    // TODO: Thực hiện lưu thông tin vào cơ sở dữ liệu (ví dụ: sử dụng MySQLi)
-
-    // Kiểm tra kết nối
-    if ($conn->connect_error) {
-      die("Kết nối thất bại: " . $conn->connect_error);
-    }
-
-    // Chuẩn bị truy vấn SQL
-    $sql = "INSERT INTO foods (food_name, food_price, food_image, food_info) VALUES ('$food_name', '$food_price', '$file_destination', '$food_info')";
-
-    // Thực hiện truy vấn
-    if ($conn->query($sql) === TRUE) {
-      echo "success";
+    if (move_uploaded_file($_FILES["food_image"]["tmp_name"], $newFileName)) {
+        // Lưu thông tin món ăn vào cơ sở dữ liệu
+        $sql = "INSERT INTO foods (food_name, food_price, food_image, food_info) 
+                VALUES ('$food_name', '$food_price', '$newFileName', '$food_info')";
+        if (mysqli_query($conn, $sql)) {
+            echo "Thêm món ăn thành công!";
+        } else {
+            echo "Lỗi: " . mysqli_error($conn);
+        }
     } else {
-      echo "Lỗi: " . $sql . "<br>" . $conn->error;
+        echo "Có lỗi khi tải lên hình ảnh.";
     }
-
-    // Đóng kết nối
-    $conn->close();
-  }
 }
 ?>
