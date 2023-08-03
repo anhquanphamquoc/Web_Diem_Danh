@@ -1,3 +1,4 @@
+<!--NOT USE-->
 <?php
 // Place any PHP code or configuration here, if needed.
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 30, 2023 lúc 05:25 PM
+-- Thời gian đã tạo: Th8 03, 2023 lúc 08:32 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -64,24 +64,52 @@ INSERT INTO `admin_accounts` (`admin_id`, `username`, `pass`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `foods`
+-- Cấu trúc bảng cho bảng `diemdanh`
 --
 
-CREATE TABLE `foods` (
-  `food_id` int(11) NOT NULL,
-  `food_name` varchar(40) NOT NULL,
-  `food_price` decimal(7,0) NOT NULL,
-  `food_image` varchar(100) NOT NULL,
-  `food_infor` varchar(100) NOT NULL
+CREATE TABLE `diemdanh` (
+  `diemdanh_id` int(11) NOT NULL,
+  `lop_id` int(11) NOT NULL,
+  `username` varchar(40) NOT NULL,
+  `lop_name` varchar(40) NOT NULL,
+  `lop_time` datetime NOT NULL,
+  `diemdanh_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `foods`
+-- Đang đổ dữ liệu cho bảng `diemdanh`
 --
 
-INSERT INTO `foods` (`food_id`, `food_name`, `food_price`, `food_image`, `food_infor`) VALUES
-(1, 'Hũ Tiếu', 20000, '../images/hu-tieu.jpg', 'Một bát hủ tiếu đầy đủ gồm nước dùng, tôm, thịt heo, thịt băm, sợi bánh nhỏ như sợi bún nhưng có màu'),
-(2, 'Cơm Tấm', 20000, '../images/com-tam.jpg', 'Cơm tấm là một món ăn truyền thống của Việt Nam, được làm từ gạo tấm và kèm theo các loại thịt như h');
+INSERT INTO `diemdanh` (`diemdanh_id`, `lop_id`, `username`, `lop_name`, `lop_time`, `diemdanh_time`) VALUES
+(4, 4, '46.01.104.146', 'Tin học căn bản', '2023-08-03 07:01:16', '2023-08-03 12:05:59'),
+(5, 4, 'anhquanphamquoc', 'Tin học căn bản', '2023-08-03 07:01:16', '2023-08-03 12:24:35'),
+(6, 5, '46.01.104.146', 'Tin học căn bản', '2023-08-03 12:51:34', '2023-08-03 12:52:03');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lop`
+--
+
+CREATE TABLE `lop` (
+  `lop_id` int(11) NOT NULL,
+  `lop_name` varchar(40) NOT NULL,
+  `lop_time` datetime NOT NULL,
+  `lop_info` varchar(100) NOT NULL,
+  `lop_pass` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lop`
+--
+
+INSERT INTO `lop` (`lop_id`, `lop_name`, `lop_time`, `lop_info`, `lop_pass`) VALUES
+(4, 'Tin học căn bản', '2023-08-03 07:01:16', 'Lớp tin học căn bản trưa thứ 5 của thầy Quân', 123),
+(5, 'Tin học căn bản', '2023-08-03 12:51:34', 'lớp trưa thứ 5', 1234),
+(6, 'Xác suất thông kê ', '2023-08-03 13:05:25', 'XSTK', 123),
+(7, 'Xác suất thông kê 2', '2023-08-03 13:05:28', 'XSTK', 123),
+(8, 'Xác suất thông kê 3', '2023-08-03 13:05:33', 'XSTK', 123),
+(9, 'Xác suất thông kê 4', '2023-08-03 13:05:37', 'XSTK', 123);
 
 -- --------------------------------------------------------
 
@@ -118,19 +146,10 @@ CREATE TABLE `order_items` (
 CREATE TABLE `order_one_only` (
   `order_one_only_id` int(11) NOT NULL,
   `username` varchar(40) NOT NULL,
-  `food_name` varchar(40) NOT NULL,
+  `lop_name` varchar(40) NOT NULL,
   `food_price` decimal(7,0) NOT NULL,
   `trangthai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
---
--- Đang đổ dữ liệu cho bảng `order_one_only`
---
-
-INSERT INTO `order_one_only` (`order_one_only_id`, `username`, `food_name`, `food_price`, `trangthai`) VALUES
-(14, '46.01.104.146', 'Cơm Tấm', 20000, 1),
-(15, '46.01.104.146', 'Hũ Tiếu', 20000, 1),
-(16, '46.01.104.146', 'Cơm Tấm', 20000, 1);
 
 -- --------------------------------------------------------
 
@@ -149,7 +168,8 @@ CREATE TABLE `student_accounts` (
 --
 
 INSERT INTO `student_accounts` (`student_id`, `username`, `pass`) VALUES
-(1, '46.01.104.146', 'anhquan123');
+(1, '46.01.104.146', 'anhquan123'),
+(3, 'anhquanphamquoc', 'anhquan123');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -168,10 +188,16 @@ ALTER TABLE `admin_accounts`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Chỉ mục cho bảng `foods`
+-- Chỉ mục cho bảng `diemdanh`
 --
-ALTER TABLE `foods`
-  ADD PRIMARY KEY (`food_id`);
+ALTER TABLE `diemdanh`
+  ADD PRIMARY KEY (`diemdanh_id`);
+
+--
+-- Chỉ mục cho bảng `lop`
+--
+ALTER TABLE `lop`
+  ADD PRIMARY KEY (`lop_id`);
 
 --
 -- Chỉ mục cho bảng `orders`
@@ -217,10 +243,16 @@ ALTER TABLE `admin_accounts`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `foods`
+-- AUTO_INCREMENT cho bảng `diemdanh`
 --
-ALTER TABLE `foods`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `diemdanh`
+  MODIFY `diemdanh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `lop`
+--
+ALTER TABLE `lop`
+  MODIFY `lop_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -244,7 +276,7 @@ ALTER TABLE `order_one_only`
 -- AUTO_INCREMENT cho bảng `student_accounts`
 --
 ALTER TABLE `student_accounts`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -260,7 +292,7 @@ ALTER TABLE `orders`
 -- Các ràng buộc cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  ADD CONSTRAINT `foodid_orderitem-food` FOREIGN KEY (`food_id`) REFERENCES `foods` (`food_id`),
+  ADD CONSTRAINT `foodid_orderitem-food` FOREIGN KEY (`food_id`) REFERENCES `lop` (`lop_id`),
   ADD CONSTRAINT `orderid_orderitem-order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 COMMIT;
 

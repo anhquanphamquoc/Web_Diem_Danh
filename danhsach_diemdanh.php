@@ -1,10 +1,11 @@
+<!-- danhsach_diemdanh.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Danh sách điểm danh</title>
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="./css/css_template/style.css">
@@ -61,53 +62,30 @@
             <h2 class="text-center">Danh sách đặt món</h2>
 
             <?php
-            //include tệp dbconfig.php và các function
+            // Include tệp menu-function.php và dbconfig.php
             require_once "includes/dbconfig.php";
             require_once 'functions/admin-function.php';
 
-            // Kiểm tra số trang hiện tại (mặc định là 1)
-            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            // Kiểm tra xem người dùng đã nhấn vào nút "Xem danh sách" tương ứng với lớp nào hay chưa
+            if (isset($_GET['lop_id'])) {
+                $lop_id = $_GET['lop_id'];
 
-            // Số lượng lớp học hiển thị trên mỗi trang
-            $items_per_page = 4;
-
-            // Lấy tổng số lớp học trong CSDL
-            $total_items = countClass($conn);
-
-            // Tính toán tổng số trang dựa vào tổng số lớp học và số lượng lớp học trên mỗi trang
-            $total_pages = ceil($total_items / $items_per_page);
-
-            // Tính toán vị trí bắt đầu của dữ liệu trên trang hiện tại
-            $start_index = ($current_page - 1) * $items_per_page;
-
-            // Lấy danh sách lớp học dựa vào vị trí bắt đầu và số lượng lớp học trên mỗi trang
-            $class_list = getClassList($conn, $start_index, $items_per_page);
-
-            // Hiển thị danh sách lớp học
-            displayClassList($class_list);
-
-            // Hiển thị phân trang
-            if ($total_pages > 1) {
-                echo '<div class="pagination">';
-                if ($current_page > 1) {
-                    echo '<a href="admin.php?page=' . ($current_page - 1) . '">Previous </a>';
-                }
-                for ($page = 1; $page <= $total_pages; $page++) {
-                    echo '<a href="admin.php?page=' . $page . '"';
-                    if ($page == $current_page) {
-                        echo ' class="active"';
-                    }
-                    echo '>' .  '</a>';
-                }
-                if ($current_page < $total_pages) {
-                    echo '<a href="admin.php?page=' . ($current_page + 1) . '"> Next </a>';
-                }
-                echo '</div>';
+                // Gọi hàm hiển thị danh sách điểm danh dựa vào lop_id
+                displayDiemDanhList($conn, $lop_id);
+            } else {
+                // Gọi hàm hiển thị danh sách món ăn
+                displayFoodMenu($conn);
             }
             ?>
+
+            <div class="clearfix"></div>
         </div>
+
+        <p class="text-center">
+            <a href="#">See All Foods</a>
+        </p>
     </section>
-    <!-- Work List Section Ends Here -->
+    <!-- fOOD Menu Section Ends Here -->
 
     <!-- social Section Starts Here -->
     <section class="social">
@@ -131,7 +109,6 @@
         </div>
     </section>
     <!-- footer Section Ends Here -->
-
     <!-- Thêm javascript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/admin.js"></script>

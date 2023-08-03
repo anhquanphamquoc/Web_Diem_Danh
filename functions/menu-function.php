@@ -5,7 +5,7 @@
 function displayFoodMenu($conn)
 {
     // Bước 3: Truy vấn dữ liệu từ CSDL theo ID giảm dần
-    $sql = "SELECT * FROM foods ORDER BY food_id DESC";
+    $sql = "SELECT * FROM lop ORDER BY lop_id DESC";
 
     // Thực thi truy vấn
     $result = mysqli_query($conn, $sql);
@@ -15,24 +15,23 @@ function displayFoodMenu($conn)
         // Lặp qua từng hàng dữ liệu
         while ($row = mysqli_fetch_assoc($result)) {
             // Lấy thông tin món ăn
-            $food_name = $row["food_name"];
-            $food_price = $row["food_price"];
-            $food_infor = $row["food_infor"];
-            $food_image = $row["food_image"];
+            $class_name = $row["lop_name"];
+            $class_time = $row["lop_time"];
+            $class_info = $row["lop_info"];
 
             // Hiển thị thông tin món ăn theo mẫu HTML
             echo '<div class="food-menu-box">';
             echo '<div class="food-menu-img">';
-            echo '<img src="images/' . $food_image . '" alt="' . $food_name . '" class="img-responsive img-curve">';
+            echo '<img src="images/icon_GG.png" class="img-responsive img-curve">';
             echo '</div>';
 
             echo '<div class="food-menu-desc">';
-            echo '<h4>' . $food_name . '</h4>';
-            echo '<p class="food-price">' . $food_price . ' đồng</p>';
-            echo '<p class="food-detail">' . $food_infor . '</p>';
+            echo '<h4>' . $class_name . '</h4>';
+            echo '<p class="food-price">' . $class_time . '</p>';
+            echo '<p class="food-detail">' . $class_info . '</p>';
             echo '<br>';
             // id="order-link" là để hiện thông báo bạn chưa đăng nhập trong script của menu.php
-            echo '<a class="btn btn-primary" id="order-link">Order Now</a>';
+            echo '<a class="btn btn-primary" id="order-link">Điểm danh</a>';
             echo '</div>';
 
             echo '</div>';
