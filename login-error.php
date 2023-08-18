@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    Chưa có tài khoản? Vui lòng liên hệ căn tin
+                    Chưa có tài khoản? Vui lòng liên hệ giảng viên
                 </div>
             </div>
         </div>

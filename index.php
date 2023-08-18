@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Trang đặt món ăn</title>
+  <title>Trang web điểm danh</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

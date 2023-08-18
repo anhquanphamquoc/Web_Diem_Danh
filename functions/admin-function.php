@@ -35,7 +35,7 @@ function displayClassList($class_list)
         // Hiển thị thông tin lớp học theo mẫu HTML
         echo '<div class="food-menu-box">';
         echo '<div class="food-menu-img">';
-        echo '<img src="images/icon_GG.png" class="img-responsive img-curve">';
+        echo '<img src="images/Logo_HCMUP.png" class="img-responsive img-curve">';
         echo '</div>';
 
         echo '<div class="food-menu-desc">';

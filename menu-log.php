@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website</title>
+    <title>Trang web điểm danh</title>
     <link rel="stylesheet" href="./css/css_template/style.css">
 </head>
 <body>
@@ -14,8 +14,11 @@
         <div class="container">
             <div class="logo">
                 <a href="#" title="Logo">
-                    <img src="images/logo.gif" alt="Restaurant Logo" class="img-responsive">
+                    <img src="images/logoWeb.jpg" alt="Restaurant Logo" class="img-responsive">
                 </a>
+            </div>
+            <div style="align: center width: 10px">
+                <img src="images/webDiemDanh.png" alt="">
             </div>
 
             <div class="menu text-right">
@@ -33,7 +36,7 @@
                             if (isset($_SESSION['username'])) {
                                 $username = $_SESSION['username'];
                                 // Hiển thị 'username'
-                                echo '<img src="./images/cat-icon.png" width="40px"> ' . $username;
+                                echo '<img src="./images/icons8-user-50.png" width="40px"> ' . $username;
                             }
                             ?>
                         </a>
@@ -47,18 +50,18 @@
     <!-- Navbar Section Ends Here -->
 
     <!-- fOOD sEARCH Section Starts Here -->
-    <section class="food-search text-center">
+    <!-- <section class="food-search text-center">
         <div class="container">
             <form action="food-search.html" method="POST">
-                <input type="search" name="search" placeholder="Search for Food.." required>
+                <input type="search" name="search" placeholder="Tìm lớp học.." required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
         </div>
-    </section>
+    </section> -->
     <!-- fOOD sEARCH Section Ends Here -->
 
     <!-- CAtegories Section Starts Here -->
-    <section class="categories">
+    <!-- <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
 
@@ -85,13 +88,13 @@
 
             <div class="clearfix"></div>
         </div>
-    </section>
+    </section> -->
     <!-- Categories Section Ends Here -->
 
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">Danh sách lớp</h2>
 
             <?php
             //include tệp menu-log-function.php
@@ -105,7 +108,7 @@
         </div>
 
         <p class="text-center">
-            <a href="#">See All Foods</a>
+            <a href="#">Hiển thị tất cả lớp</a>
         </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->
