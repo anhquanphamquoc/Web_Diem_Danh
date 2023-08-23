@@ -18,7 +18,7 @@
         <div class="container">
             <div class="logo">
                 <a href="#" title="Logo">
-                    <img src="images/logo.gif" alt="Restaurant Logo" class="img-responsive">
+                    <img src="images/logoWeb.jpg" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
 
@@ -43,7 +43,7 @@
                             if (isset($_SESSION['username'])) {
                                 $username = $_SESSION['username'];
                                 // Hiển thị 'username'
-                                echo '<img src="./images/cat-icon.png" width="40px"> ' . $username;
+                                echo '<img src="./images/icons8-admin-50.png" width="40px"> ' . $username;
                             }
                             ?>
                         </a>
@@ -59,7 +59,7 @@
     <!-- Work List Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Danh sách đặt món</h2>
+            <h2 class="text-center">Danh sách học sinh điểm danh</h2>
 
             <?php
             // Include tệp menu-function.php và dbconfig.php
@@ -80,10 +80,6 @@
 
             <div class="clearfix"></div>
         </div>
-
-        <p class="text-center">
-            <a href="#">See All Foods</a>
-        </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->
 
@@ -105,7 +101,7 @@
     <!-- footer Section Starts Here -->
     <section class="footer">
         <div class="container text-center">
-            <p>All rights reserved. Designed By <a href="#">Vijay Thapa</a></p>
+            <p>All rights reserved. Designed By <a href="#">Neko</a></p>
         </div>
     </section>
     <!-- footer Section Ends Here -->

@@ -17,7 +17,7 @@
                     <img src="images/logoWeb.jpg" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
-            <div style="align: center width: 10px">
+            <div style="align: center">
                 <img src="images/webDiemDanh.png" alt="">
             </div>
 
@@ -131,7 +131,7 @@
     <!-- footer Section Starts Here -->
     <section class="footer">
         <div class="container text-center">
-            <p>All rights reserved. Designed By <a href="#">Vijay Thapa</a></p>
+            <p>All rights reserved. Designed By <a href="#">Neko</a></p>
         </div>
     </section>
     <div class="clearfix"></div>

@@ -7,7 +7,7 @@
     <title>Admin Page</title>
 
     <!-- Link our CSS file -->
-    <link rel="stylesheet" href="./css/css_template/style.css">
+    <link rel="stylesheet" href="./css/css_template/style_admin.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                     <img src="images/logoWeb.jpg" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
-            <div style="align: center width: 10px">
+            <div style="align: center">
                 <img src="images/webDiemDanh.png" alt="">
             </div>
 
